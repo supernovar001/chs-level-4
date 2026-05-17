@@ -1,11 +1,22 @@
 def solution(players, callings):
-    for i, play in enumerate(players):
-        
-        # if callings[i]:
-            swap(players.get(callings[i])), swap[] 
-        
+    # 추월발생한 순서가 반영되지 않았음!
+    # 추월 이후 순위 반영 필요
     
-# 선수들의 이름이 1등부터 현재 등수 순서대로 담긴 문자열 배열 players와 해설진이 부른 이름을 담은 문자열 배열 callings가 매개변수로 주어질 때, 경주가 끝났을 때 선수들의 이름을 1등부터 등수 순서대로 배열에 담아 return 하는 solution 함수를 완성해주세요.
-                # players	callings
+    rank = {} # "사람이름" : 등수
+    for i, play in enumerate(players):
+        rank[play] = i
+    print(rank)        
+    
+    for j, call in enumerate(callings):
+        idx = rank[call] 
+        rank[call] = idx-1 
+        rank[callings[j-1]] =idx + 1
+        players[idx-1], players[idx] = players[idx], players[idx-1] 
+    print(rank)
+    #return list(rank.keys())
+    return players
+                                #players                	callings                	result
 print(solution(["mumu", "soe", "poe", "kai", "mine"],["kai", "kai", "mine", "mine"]))
-    # ["mumu", "kai", "mine", "soe", "poe"]
+#      (["mumu", "kai", "mine", "soe", "poe"]))
+
+#{'mumu': 0, 'soe': 3, 'poe': 4, 'kai': 1, 'mine': 2}
