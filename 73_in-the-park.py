@@ -10,6 +10,7 @@ def solution(park, routes):
             if park[w][n] == "S" :
                 # 1. 시작 지점
                 initial_point = [w,n]
+                # print(initial_point)
     now_position[0] = initial_point[0]
     now_position[1] = initial_point[1]
     
@@ -17,15 +18,14 @@ def solution(park, routes):
     for r in routes :
         direction, times = r.split()
         route_plan[direction] = int(times)           
-        now_position[0] += route_default[direction] * route_plan[direction][0] 
-        now_position[1] += route_default[direction] * route_plan[direction][1]  
+        now_position += route_default[direction]*route_plan[direction]
         print(now_position)
     
     #     if now_position in "X" :        
     #             continue    # 장애물
     #     else :
     #         now_position  += route_default[routes[0]]*int(routes[2])
-    # return now_position
+    return now_position
 
 
 #park	routes	result
