@@ -1,2 +1,2 @@
 # chs-level-4
-programmers lv4 algorithm solution
+programmers lv1,lv2 algorithm solution
